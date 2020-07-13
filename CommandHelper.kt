@@ -1,4 +1,4 @@
-package com.eh.kotlin.command
+package com.eh.kotlin.commandhelperkt
 
 import java.lang.StringBuilder
 
@@ -46,6 +46,12 @@ class CommandHelper {
                 index = readLine()?.toIntOrNull()
             }
             return chosen
+        }
+
+        fun waitBoolean(s: String): Boolean {
+            println("$s (Y/N)")
+            val input = readLine()
+            return input.equals("Y",true)
         }
     }
 }
