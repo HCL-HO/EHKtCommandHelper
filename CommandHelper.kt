@@ -30,7 +30,8 @@ class CommandHelper {
             return mails.elementAt(index)
         }
 
-        fun chooseMany(mails: Collection<String>): Collection<String> {
+        fun chooseMany(msg: String = "", mails: Collection<String>): Collection<String> {
+            if (msg.isNotEmpty()) println("$msg Press Enter When Finished")
             val chosen = HashSet<String>()
             val sb = StringBuilder()
             mails.forEachIndexed { index, s ->
@@ -48,10 +49,14 @@ class CommandHelper {
             return chosen
         }
 
+        fun chooseMany(mails: Collection<String>): Collection<String> {
+            return chooseMany("", mails)
+        }
+
         fun waitBoolean(s: String): Boolean {
             println("$s (Y/N)")
             val input = readLine()
-            return input.equals("Y",true)
+            return input.equals("Y", true)
         }
     }
 }
